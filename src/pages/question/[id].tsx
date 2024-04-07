@@ -1,3 +1,4 @@
+import PageWrapper from '@/src/components/PagesWrapper'
 import { getComponent } from '@/src/components/QuestionComponents'
 import styles from '@/styles/Question.module.scss'
 
@@ -21,32 +22,32 @@ const Question = (props: PropsType) => {
 
   if (errno !== 0) {
     return (
-      <div>
+      <PageWrapper title="错误">
         <h1>error</h1>
         <div>{msg}</div>
-      </div>
+      </PageWrapper>
     )
   }
 
-  const { id, title, desc = '', isDeleted, isPublished, componentList } = data || {}
+  const { id, title = '', desc = '', isDeleted, isPublished, componentList } = data || {}
 
   // 已删除提示错误
   if (isDeleted) {
     return (
-      <div>
+      <PageWrapper title={title} desc={desc}>
         <h1>error</h1>
         <div>{msg}</div>
-      </div>
+      </PageWrapper>
     )
   }
 
   // 未发布提示错误
   if (!isPublished) {
     return (
-      <div>
+      <PageWrapper title={title} desc={desc}>
         <h1>error</h1>
         <div>{msg}</div>
-      </div>
+      </PageWrapper>
     )
   }
 
@@ -65,15 +66,17 @@ const Question = (props: PropsType) => {
   )
 
   return (
-    <form method='post' action="/api/answer">
-      <input type="hidden" name="questionId" value={id} />
+    <PageWrapper title={title} desc={desc}>
+      <form method='post' action="/api/answer">
+        <input type="hidden" name="questionId" value={id} />
 
-      {ComponentListElem}
+        {ComponentListElem}
 
-      <div className={styles.submitBtnContainer}>
-        <button type="submit">提交</button>
-      </div>
-    </form>
+        <div className={styles.submitBtnContainer}>
+          <button type="submit">提交</button>
+        </div>
+      </form>
+    </PageWrapper>
   )
 }
 
