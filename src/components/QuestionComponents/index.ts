@@ -1,4 +1,5 @@
 import QuestionInfo from './QuestionInfo'
+import QuestionTitle from './QuestionTitle'
 
 type ComponentInfoType = {
   fe_id: string
