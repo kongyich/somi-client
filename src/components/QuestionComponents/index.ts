@@ -1,3 +1,4 @@
+import QuestionInfo from './QuestionInfo'
 
 type ComponentInfoType = {
   fe_id: string
