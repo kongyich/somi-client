@@ -1,5 +1,7 @@
 import QuestionInfo from './QuestionInfo'
 import QuestionTitle from './QuestionTitle'
+import QuestionInput from './QuestionInput'
+import QuestionParagraph from './QuestionParagraph'
 
 type ComponentInfoType = {
   fe_id: string
