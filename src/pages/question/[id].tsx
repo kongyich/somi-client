@@ -80,5 +80,4 @@ const Question = (props: PropsType) => {
   )
 }
 
-
 export default Question
